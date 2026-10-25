@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reference Landing - Grid + Flexbox</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', Arial, sans-serif; background: #f8f9ff; color: #2f3542; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+
+/* PAGE LAYOUT - GRID */
+.page {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: "header" "main" "footer";
+  min-height: 100vh;
+}
+.header { grid-area: header; }
+.main { grid-area: main; }
+.footer { grid-area: footer; }
+
+/* HEADER - FLEXBOX */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 5%;
+  background: white;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+  position: sticky; top: 0; z-index: 100;
+}
+.logo { font-size: 26px; font-weight: 800; color: #6c5ce7; }
+.nav-links { display: flex; gap: 30px; list-style: none; }
+.nav-links a { font-weight: 500; color: #636e72; }
+.nav-links a:hover { color: #6c5ce7; }
+.btn { background: #6c5ce7; color: white; border: none; padding: 11px 24px; border-radius: 30px; cursor: pointer; font-weight: 600; }
+.btn-outline { background: transparent; border: 2px solid #6c5ce7; color: #6c5ce7; }
+
+/* HERO - FLEXBOX (Appropriate for 2 column alignment) */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 80px 5%;
+  gap: 50px;
+  max-width: 1300px;
+  margin: auto;
+}
+.hero-text { flex: 1; }
+.hero-text h1 { font-size: clamp(36px, 5vw, 64px); line-height: 1.05; letter-spacing: -1px; }
+.hero-text h1 span { color: #6c5ce7; }
+.hero-text p { margin: 20px 0 30px 0; color: #636e72; font-size: 18px; line-height: 1.6; max-width: 500px; }
+.hero-btns { display: flex; gap: 15px; }
+.hero-img { flex: 1; display: flex; justify-content: center; }
+.hero-img img { width: 100%; max-width: 580px; border-radius: 24px; box-shadow: 0 20px 50px rgba(108,92,231,0.15); }
+
+/* FEATURES - FLEXBOX (Appropriate for wrapping cards) */
+.features { padding: 0 5%; max-width: 1300px; margin: auto; }
+.section-head { text-align: center; margin: 80px 0 30px 0; }
+.section-head h2 { font-size: 36px; } .section-head p { color: #636e72; margin-top: 10px; }
+.cards { display: flex; flex-wrap: wrap; gap: 25px; justify-content: center; }
+.card { flex: 1; min-width: 280px; max-width: 380px; background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+.card .icon { width: 50px; height: 50px; background: #f1f0ff; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 15px; }
+
+/* PRODUCTS - GRID (Appropriate for auto-reflow grid) */
+.products { padding: 0 5%; max-width: 1300px; margin: auto; }
+.product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
+.product { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.05); transition: 0.3s; }
+.product:hover { transform: translateY(-8px); }
+.product img { height: 200px; width: 100%; object-fit: cover; }
+.product .info { padding: 18px; }
+.price-row { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; }
+
+/* GALLERY - GRID (Appropriate for masonry style) */
+.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; padding: 0 5%; max-width: 1300px; margin: auto; }
+.gallery img { height: 220px; width: 100%; object-fit: cover; border-radius: 16px; }
+
+/* CTA - FLEXBOX (Appropriate for centered content) */
+.cta { display: flex; justify-content: center; align-items: center; flex-direction: column; background: #6c5ce7; color: white; margin: 80px 5%; padding: 70px 20px; border-radius: 30px; text-align: center; }
+.cta h2 { font-size: 40px; max-width: 600px; }
+
+/* FOOTER - FLEXBOX */
+.footer { display: flex; justify-content: space-between; align-items: center; padding: 30px 5%; background: white; margin-top: 40px; flex-wrap: wrap; gap: 15px; }
+
+@media(max-width: 900px){
+  .header .nav-links { display: none; }
+  .hero { flex-direction: column; text-align: center; padding: 50px 5%; }
+  .hero-btns { justify-content: center; }
+  .cta h2 { font-size: 28px; }
+}
+@media(max-width: 600px){
+  .product-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .gallery { grid-template-columns: 1fr 1fr; }
+  .product img, .gallery img { height: 160px; }
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+  <header class="header">
+    <div class="logo">RefPage</div>
+    <ul class="nav-links"><li><a href="#">Home</a></li><li><a href="#">Features</a></li><li><a href="#">Products</a></li><li><a href="#">Gallery</a></li></ul>
+    <div style="display:flex; gap:10px;"><button class="btn btn-outline">Login</button><button class="btn">Get Started</button></div>
+  </header>
+
+  <main class="main">
+    <section class="hero">
+      <div class="hero-text"><h1>Build Faster with <span>Grid + Flexbox</span></h1><p>Reference landing page using Flexbox for alignment & navigation, Grid for product listing and gallery - responsive on all devices.</p><div class="hero-btns"><button class="btn">Explore Products</button><button class="btn btn-outline">Watch Demo</button></div></div>
+      <div class="hero-img"><img src="https://picsum.photos/600/500?1"></div>
+    </section>
+
+    <div class="features">
+      <div class="section-head"><h2>Why Choose Us</h2><p>Flexbox used for flexible card wrapping</p></div>
+      <div class="cards"><div class="card"><div class="icon">⚡</div><h3>Fast</h3><p style="color:#888; margin-top:8px;">Flexbox for perfect alignment of content</p></div><div class="card"><div class="icon">🎨</div><h3>Modern Grid</h3><p style="color:#888; margin-top:8px;">CSS Grid for auto-reflow product layout</p></div><div class="card"><div class="icon">📱</div><h3>Responsive</h3><p style="color:#888; margin-top:8px;">2 breakpoints tested: 900px & 600px</p></div></div>
+    </div>
+
+    <div class="products">
+      <div class="section-head"><h2>Products</h2><p>Grid: repeat(auto-fit, minmax(260px, 1fr))</p></div>
+      <div class="product-grid">
+        <div class="product"><img src="https://picsum.photos/400/300?2"><div class="info"><h3>Nike Shoes</h3><p style="color:#888;">Running</p><div class="price-row"><b>$99</b><button class="btn">Buy</button></div></div></div>
+        <div class="product"><img src="https://picsum.photos/400/300?3"><div class="info"><h3>Smart Watch</h3><p style="color:#888;">Latest</p><div class="price-row"><b>$149</b><button class="btn">Buy</button></div></div></div>
+        <div class="product"><img src="https://picsum.photos/400/300?4"><div class="info"><h3>Backpack</h3><p style="color:#888;">Travel</p><div class="price-row"><b>$79</b><button class="btn">Buy</button></div></div></div>
+        <div class="product"><img src="https://picsum.photos/400/300?5"><div class="info"><h3>Headphone</h3><p style="color:#888;">Bass</p><div class="price-row"><b>$129</b><button class="btn">Buy</button></div></div></div>
+        <div class="product"><img src="https://picsum.photos/400/300?6"><div class="info"><h3>T-Shirt</h3><p style="color:#888;">Cotton</p><div class="price-row"><b>$29</b><button class="btn">Buy</button></div></div></div>
+        <div class="product"><img src="https://picsum.photos/400/300?7"><div class="info"><h3>Cap</h3><p style="color:#888;">Trendy</p><div class="price-row"><b>$19</b><button class="btn">Buy</button></div></div></div>
+      </div>
+    </div>
+
+    <div class="section-head"><h2>Gallery</h2><p>Grid gallery - auto reflow</p></div>
+    <div class="gallery"><img src="https://picsum.photos/400/300?10"><img src="https://picsum.photos/400/300?11"><img src="https://picsum.photos/400/300?12"><img src="https://picsum.photos/400/300?13"><img src="https://picsum.photos/400/300?14"><img src="https://picsum.photos/400/300?15"></div>
+
+    <div class="cta"><h2>Ready to Build Your Own?</h2><p style="margin:15px 0 25px 0; opacity:0.9;">This reference uses Flexbox where alignment matters, Grid where 2D layout matters</p><button class="btn" style="background:white; color:#6c5ce7;">Start Building</button></div>
+  </main>
+
+  <footer class="footer"><div><b>RefPage</b> © 2026 Grid + Flexbox</div><div style="display:flex; gap:20px;"><span>Flexbox: Header, Hero, Cards, CTA, Footer</span><span>Grid: Products, Gallery</span></div></footer>
+</div>
+
+</body>
+</html>

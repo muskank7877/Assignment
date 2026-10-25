@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reference Landing - Skeleton + Desktop Base</title>
+<style>
+/* ===== BASE RESET ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #f8f9ff; color: #2f3542; overflow-x: hidden; line-height: 1.5; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* ===== DESKTOP BASE STYLES - 1200px+ ===== */
+.container { max-width: 1280px; margin: auto; padding: 0 40px; }
+
+/* HEADER - Flexbox Desktop */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 0 40px;
+  background: #ffffff;
+  border-bottom: 1px solid #eef0f6;
+}
+.logo { font-size: 28px; font-weight: 800; color: #6c5ce7; }
+.nav { display: flex; gap: 40px; }
+.btn-primary { background: #6c5ce7; color: white; border: none; padding: 12px 28px; border-radius: 30px; font-weight: 600; cursor: pointer; }
+
+/* HERO - Flexbox Desktop - 2 Columns */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 85vh;
+  padding: 60px 40px;
+  gap: 60px;
+}
+.hero-left { flex: 1; }
+.hero-left h1 { font-size: 64px; line-height: 1; letter-spacing: -2px; }
+.hero-left h1 span { color: #6c5ce7; }
+.hero-left p { font-size: 18px; color: #636e72; margin: 24px 0; max-width: 520px; }
+.hero-right { flex: 1; }
+.hero-right img { width: 100%; border-radius: 24px; }
+
+/* FEATURES - Flexbox Desktop - 3 Columns */
+.features { display: flex; gap: 30px; padding: 60px 40px; }
+.feature-card { flex: 1; background: white; padding: 32px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+
+/* PRODUCTS - Grid Desktop - 4 Columns */
+.section-title { padding: 60px 40px 20px 40px; }
+.section-title h2 { font-size: 40px; }
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  padding: 0 40px 60px 40px;
+}
+.product { background: white; border-radius: 20px; overflow: hidden; }
+.product img { height: 220px; width: 100%; object-fit: cover; }
+.product-info { padding: 20px; }
+
+/* GALLERY - Grid Desktop - 4 Columns */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 0 40px 60px 40px;
+}
+.gallery img { height: 240px; object-fit: cover; border-radius: 16px; }
+
+/* FOOTER - Flexbox Desktop */
+.footer { display: flex; justify-content: space-between; align-items: center; padding: 30px 40px; background: white; border-top: 1px solid #eef0f6; }
+</style>
+</head>
+<body>
+
+<!-- SKELETON START -->
+<header class="header">
+  <div class="logo">Skeleton</div>
+  <nav><ul class="nav"><li>Home</li><li>Features</li><li>Products</li><li>Gallery</li></ul></nav>
+  <button class="btn-primary">Get Started</button>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-left"><h1>Desktop Base <span>Layout</span></h1><p>This is base desktop skeleton. Flexbox for header, hero, features. Grid for products & gallery. Push this first, then add breakpoints.</p><button class="btn-primary">Explore</button></div>
+    <div class="hero-right"><img src="https://picsum.photos/600/500?1"></div>
+  </section>
+
+  <section class="section-title"><h2>Features - Flexbox 3 Col</h2></section>
+  <section class="features">
+    <div class="feature-card"><h3>Flexbox</h3><p>Header, Hero, Features, Footer</p></div>
+    <div class="feature-card"><h3>Grid</h3><p>Products, Gallery</p></div>
+    <div class="feature-card"><h3>Desktop First</h3><p>Base styles for 1200px+</p></div>
+  </section>
+
+  <section class="section-title"><h2>Products - Grid 4 Col Desktop</h2></section>
+  <section class="product-grid">
+    <div class="product"><img src="https://picsum.photos/400/300?2"><div class="product-info"><h3>Product 1</h3><p>$99</p></div></div>
+    <div class="product"><img src="https://picsum.photos/400/300?3"><div class="product-info"><h3>Product 2</h3><p>$149</p></div></div>
+    <div class="product"><img src="https://picsum.photos/400/300?4"><div class="product-info"><h3>Product 3</h3><p>$79</p></div></div>
+    <div class="product"><img src="https://picsum.photos/400/300?5"><div class="product-info"><h3>Product 4</h3><p>$129</p></div></div>
+  </section>
+
+  <section class="section-title"><h2>Gallery - Grid 4 Col Desktop</h2></section>
+  <section class="gallery"><img src="https://picsum.photos/400/300?10"><img src="https://picsum.photos/400/300?11"><img src="https://picsum.photos/400/300?12"><img src="https://picsum.photos/400/300?13"></section>
+</main>
+
+<footer class="footer"><div>© 2026 Skeleton Push</div><div>Base Desktop Styles Only</div></footer>
+<!-- SKELETON END -->
+
+</body>
+</html>
