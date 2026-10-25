@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Final Assignment - All in One</title>
+<style>
+/* 1. OVERFLOW FIX */
+* { margin: 0; box-sizing: border-box; }
+body { font-family: Arial, sans-serif; overflow-x: hidden; background: #f5f6fa; }
+img { max-width: 100%; display: block; }
+
+/* 2. HERO SECTION - position + z-index */
+.hero {
+  position: relative;
+  height: 70vh;
+  background: url('https://picsum.photos/1200/600') center/cover no-repeat;
+  display: flex; align-items: center; justify-content: center;
+}
+.hero::before {
+  content: ""; position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1;
+}
+.hero-content { position: relative; z-index: 2; color: white; text-align: center; }
+.hero-content h1 { font-size: 48px; }
+.hero-content button { margin-top: 15px; padding: 12px 28px; border-radius: 25px; border: none; background: #6c5ce7; color: white; cursor: pointer; }
+.badge { position: absolute; top: 20px; right: 20px; z-index: 3; background: #ffeaa7; padding: 6px 14px; border-radius: 20px; font-weight: bold; }
+
+/* 3. 3 CARD VARIANTS */
+.section-title { text-align: center; margin: 40px 0 20px 0; }
+.container { max-width: 1100px; margin: auto; padding: 20px; display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+.card { width: 300px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); overflow-wrap: break-word; min-width: 0; }
+.c1 { background: white; border-radius: 10px; }
+.c2 { background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 25px; color: white; }
+.c3 { background: #ffeaa7; border-radius: 40px 0 40px 0; }
+
+/* 4. PRODUCT CARD - FINAL */
+.product-card { width: 320px; background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+.product-card .info { padding: 20px; }
+.price-row { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; }
+.price { font-size: 22px; font-weight: bold; }
+.price-row button { background: #6c5ce7; color: white; border: none; padding: 10px 20px; border-radius: 25px; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="badge">New</div>
+  <div class="hero-content">
+    <h1>Final Project</h1>
+    <p>Hero with position & z-index</p>
+    <button>Explore</button>
+  </div>
+</section>
+
+<!-- 3 VARIANTS -->
+<h2 class="section-title">Three Card Variants</h2>
+<div class="container">
+  <div class="card c1"><h3>Card 1</h3><p>Solid bg + 10px radius</p></div>
+  <div class="card c2"><h3>Card 2</h3><p>Gradient bg + 25px radius</p></div>
+  <div class="card c3"><h3>Card 3</h3><p>Solid bg + Asymmetric radius</p></div>
+</div>
+
+<!-- PRODUCT CARD -->
+<h2 class="section-title">Product Card Component</h2>
+<div class="container">
+  <div class="product-card">
+    <img src="https://picsum.photos/400/300?random=5" alt="product">
+    <div class="info">
+      <h3>Nike Air Max</h3>
+      <p>Premium comfort, overflow fixed, no layout break.</p>
+      <div class="price-row"><span class="price">$129</span><button>Add to Cart</button></div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

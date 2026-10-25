@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Final Grid Project - Submission</title>
+<style>
+/* RESET + FIX OVERFLOW */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', Arial, sans-serif; background: #f1f2f6; overflow-x: hidden; color: #2f3542; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+
+/* MAIN LAYOUT - GRID WITH NAMED AREAS */
+.page {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: 70px 1fr;
+  grid-template-areas:
+    "header header"
+    "sidebar main";
+  min-height: 100vh;
+}
+
+/* HEADER */
+.header {
+  grid-area: header;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+  position: sticky; top: 0; z-index: 100;
+}
+.logo { font-size: 24px; font-weight: 800; color: #6c5ce7; }
+.header nav { display: flex; gap: 25px; }
+.btn { background: #6c5ce7; color: white; border: none; padding: 10px 22px; border-radius: 25px; cursor: pointer; font-weight: 600; }
+
+/* SIDEBAR */
+.sidebar {
+  grid-area: sidebar;
+  background: #2f3542;
+  color: white;
+  padding: 30px 20px;
+}
+.sidebar h4 { color: #a29bfe; margin: 25px 0 10px 0; font-size: 13px; letter-spacing: 1px; }
+.sidebar ul { list-style: none; }
+.sidebar li { padding: 12px 10px; border-radius: 8px; cursor: pointer; margin-bottom: 4px; }
+.sidebar li:hover, .sidebar li.active { background: #6c5ce7; }
+
+/* MAIN */
+.main { grid-area: main; padding: 30px; }
+.section-title { font-size: 28px; margin: 50px 0 20px 0; }
+.section-title:first-child { margin-top: 0; }
+
+/* HERO - Flexbox */
+.hero { display: flex; justify-content: space-between; align-items: center; background: white; border-radius: 20px; padding: 40px; gap: 40px; }
+.hero-text { flex: 1; } .hero-text h1 { font-size: 48px; line-height: 1.1; } .hero-text h1 span { color: #6c5ce7; }
+.hero-text p { color: #747d8c; margin: 15px 0 20px 0; font-size: 17px; }
+.hero-img { flex: 1; } .hero-img img { border-radius: 15px; width: 100%; }
+
+/* DASHBOARD - Named Grid Areas Example */
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+    "stat1 stat2 stat3"
+    "chart chart list";
+  gap: 20px;
+}
+.stat1 { grid-area: stat1; } .stat2 { grid-area: stat2; } .stat3 { grid-area: stat3; }
+.chart { grid-area: chart; } .list { grid-area: list; }
+.d-card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+.d-card h3 { font-size: 24px; margin-top: 5px; }
+
+/* PRODUCT GRID - Auto Reflow */
+.product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+.product { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.06); transition: 0.3s; }
+.product:hover { transform: translateY(-6px); }
+.product img { height: 180px; width: 100%; object-fit: cover; }
+.product .info { padding: 15px; }
+.price-row { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
+
+/* GALLERY - CSS Grid */
+.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+.gallery img { height: 180px; object-fit: cover; border-radius: 12px; }
+
+/* CARDS */
+.cards { display: flex; flex-wrap: wrap; gap: 20px; }
+.card { width: 300px; flex: 1; min-width: 250px; padding: 25px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+
+/* LOGIN - Centred Flexbox */
+.login-wrap { display: flex; justify-content: center; align-items: center; background: white; border-radius: 20px; height: 400px; margin-top: 20px; }
+.login-box { width: 340px; }
+.login-box input { width: 100%; padding: 12px; margin-bottom: 12px; border: 1px solid #dfe4ea; border-radius: 8px; }
+
+@media(max-width: 900px){
+  .page { grid-template-columns: 1fr; grid-template-areas: "header" "sidebar" "main"; }
+  .sidebar { display: flex; overflow-x: auto; gap: 15px; padding: 15px; } .sidebar ul { display: flex; gap: 10px; } .sidebar h4 { display: none; }
+  .hero { flex-direction: column; text-align: center; } .hero-text h1 { font-size: 36px; }
+  .dashboard { grid-template-columns: 1fr; grid-template-areas: "stat1" "stat2" "stat3" "chart" "list"; }
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+  <header class="header">
+    <div class="logo">GridFinal</div>
+    <nav><a href="#">Home</a><a href="#">Products</a><a href="#">Gallery</a></nav>
+    <button class="btn">Login</button>
+  </header>
+
+  <aside class="sidebar">
+    <h4>MAIN</h4>
+    <ul><li class="active">Dashboard</li><li>Products</li><li>Gallery</li></ul>
+    <h4>CATEGORIES</h4>
+    <ul><li>Shoes</li><li>Watches</li><li>Bags</li></ul>
+  </aside>
+
+  <main class="main">
+    
+    <div class="hero">
+      <div class="hero-text"><h1>Finished <span>Grid</span> Project</h1><p>Header + Sidebar with named grid areas, responsive product grid with auto-fit, dashboard layout, gallery & more - all in one file.</p><button class="btn">Explore Now</button></div>
+      <div class="hero-img"><img src="https://picsum.photos/600/400?1"></div>
+    </div>
+
+    <h2 class="section-title">Dashboard - Named Areas</h2>
+    <div class="dashboard">
+      <div class="d-card stat1"><small>Total Sales</small><h3>$12,450</h3></div>
+      <div class="d-card stat2"><small>Users</small><h3>1,240</h3></div>
+      <div class="d-card stat3"><small>Orders</small><h3>320</h3></div>
+      <div class="d-card chart"><b>Main Chart Area</b><p style="color:#888; margin-top:10px;">grid-area: chart</p></div>
+      <div class="d-card list"><b>Top Products</b><p style="color:#888; margin-top:10px;">grid-area: list</p></div>
+    </div>
+
+    <h2 class="section-title">Responsive Product Grid - Auto Reflow</h2>
+    <div class="product-grid">
+      <div class="product"><img src="https://picsum.photos/300/200?10"><div class="info"><h3>Shoes</h3><div class="price-row"><b>$99</b><button class="btn">Buy</button></div></div></div>
+      <div class="product"><img src="https://picsum.photos/300/200?11"><div class="info"><h3>Watch</h3><div class="price-row"><b>$149</b><button class="btn">Buy</button></div></div></div>
+      <div class="product"><img src="https://picsum.photos/300/200?12"><div class="info"><h3>Bag</h3><div class="price-row"><b>$79</b><button class="btn">Buy</button></div></div></div>
+      <div class="product"><img src="https://picsum.photos/300/200?13"><div class="info"><h3>Headphone</h3><div class="price-row"><b>$129</b><button class="btn">Buy</button></div></div></div>
+      <div class="product"><img src="https://picsum.photos/300/200?14"><div class="info"><h3>T-Shirt</h3><div class="price-row"><b>$29</b><button class="btn">Buy</button></div></div></div>
+      <div class="product"><img src="https://picsum.photos/300/200?15"><div class="info"><h3>Cap</h3><div class="price-row"><b>$19</b><button class="btn">Buy</button></div></div></div>
+      <div class="product"><img src="https://picsum.photos/300/200?16"><div class="info"><h3>Sunglass</h3><div class="price-row"><b>$49</b><button class="btn">Buy</button></div></div></div>
+      <div class="product"><img src="https://picsum.photos/300/200?17"><div class="info"><h3>Wallet</h3><div class="price-row"><b>$39</b><button class="btn">Buy</button></div></div></div>
+    </div>
+
+    <h2 class="section-title">Photo Gallery - CSS Grid</h2>
+    <div class="gallery"><img src="https://picsum.photos/400/300?20"><img src="https://picsum.photos/400/300?21"><img src="https://picsum.photos/400/300?22"><img src="https://picsum.photos/400/300?23"><img src="https://picsum.photos/400/300?24"><img src="https://picsum.photos/400/300?25"></div>
+
+    <h2 class="section-title">3 Card Variants + Login</h2>
+    <div class="cards"><div class="card"><h3>Card 1</h3><p>Solid + 12px radius</p></div><div class="card" style="background:linear-gradient(135deg,#667eea,#764ba2); color:white;"><h3>Card 2</h3><p>Gradient style</p></div><div class="card" style="background:#ffeaa7;"><h3>Card 3</h3><p>Unique color</p></div></div>
+
+    <div class="login-wrap"><div class="login-box"><h2 style="text-align:center; margin-bottom:15px;">Login - Centred Flexbox</h2><input placeholder="Email"><input type="password" placeholder="Password"><button class="btn" style="width:100%;">Login</button></div></div>
+
+  </main>
+</div>
+
+</body>
+</html>

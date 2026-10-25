@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fixed Cards</title>
+<style>
+/* --- OVERFLOW FIX --- */
+* { box-sizing: border-box; }
+body { margin: 0; overflow-x: hidden; font-family: Arial, sans-serif; background: #f4f4f4; }
+img { max-width: 100%; }
+.container { max-width: 1100px; margin: auto; padding: 20px; display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+
+/* --- CARD BASE --- */
+.card { width: 300px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); overflow-wrap: break-word; min-width: 0; }
+
+/* Card 1 */
+.c1 { background: white; border-radius: 10px; }
+/* Card 2 */
+.c2 { background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 25px; color: white; }
+/* Card 3 */
+.c3 { background: #ffeaa7; border-radius: 40px 0 40px 0; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="card c1">
+    <h3>Simple Card</h3>
+    <p>10px radius + solid white background.</p>
+  </div>
+  <div class="card c2">
+    <h3>Gradient Card</h3>
+    <p>25px radius + gradient background.</p>
+  </div>
+  <div class="card c3">
+    <h3>Asymmetric Card</h3>
+    <p>40px 0 radius + solid color background. Long text bhi layout nahi todega.</p>
+  </div>
+</div>
+</body>
+</html>

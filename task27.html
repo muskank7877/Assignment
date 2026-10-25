@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>3 Card Variants</title>
+<style>
+body{
+  background:#f2f2f2;
+  display:flex;
+  gap:20px;
+  justify-content:center;
+  padding:40px;
+  font-family: sans-serif;
+}
+.card{
+  width:220px;
+  padding:20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.card h3{ margin:0 0 10px 0; }
+
+/* Card 1 - Simple */
+.c1{
+  background: white;
+  border-radius: 10px;
+}
+
+/* Card 2 - Gradient + Full Round */
+.c2{
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  border-radius: 30px;
+  color: white;
+}
+
+/* Card 3 - Alag Design */
+.c3{
+  background: #ffecd2;
+  border-radius: 50px 0 50px 0;
+  border: 2px dashed #e17055;
+}
+</style>
+</head>
+<body>
+
+<div class="card c1">
+  <h3>Card 1</h3>
+  <p>Solid white background, small border-radius.</p>
+</div>
+
+<div class="card c2">
+  <h3>Card 2</h3>
+  <p>Gradient background, large border-radius.</p>
+</div>
+
+<div class="card c3">
+  <h3>Card 3</h3>
+  <p>Pattern background, asymmetric border-radius.</p>
+</div>
+
+</body>
+</html>

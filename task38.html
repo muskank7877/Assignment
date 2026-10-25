@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Final - All In One + Dashboard Grid Areas</title>
+<style>
+* { margin: 0; box-sizing: border-box; }
+body { font-family: Arial, sans-serif; background: #f8f9fa; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+.title { text-align: center; margin: 60px 0 20px 0; }
+
+/* NAVBAR - Flexbox */
+.navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 40px; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 10; }
+.logo { font-weight: bold; font-size: 22px; color: #6c5ce7; }
+.menu { display: flex; gap: 30px; list-style: none; }
+.menu a { text-decoration: none; color: #333; }
+.btn { background: #6c5ce7; color: white; border: none; padding: 10px 22px; border-radius: 25px; cursor: pointer; }
+
+/* HERO - Flexbox */
+.hero { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: auto; min-height: 80vh; padding: 40px; gap: 40px; }
+.hero-text { flex: 1; } .hero-text h1 { font-size: 50px; } .hero-text h1 span { color: #6c5ce7; }
+.hero-img { flex: 1; display: flex; justify-content: center; } .hero-img img { max-width: 500px; border-radius: 20px; }
+
+/* 3 CARDS */
+.cards { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; max-width: 1200px; margin: auto; padding: 20px; }
+.card { width: 300px; padding: 25px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); }
+.c1 { border-radius: 12px; } .c2 { background: linear-gradient(135deg,#667eea,#764ba2); color: white; border-radius: 25px; } .c3 { background: #ffeaa7; border-radius: 30px 0 30px 0; }
+
+/* PRODUCT GRID - Auto Reflow */
+.product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; max-width: 1200px; margin: auto; padding: 20px; }
+.product { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.08); }
+.product .info { padding: 15px; } .price-row { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
+
+/* GALLERY - Grid */
+.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; max-width: 1200px; margin: auto; padding: 20px; }
+.gallery img { height: 220px; object-fit: cover; border-radius: 12px; }
+
+/* DASHBOARD - NAMED GRID AREAS */
+.dashboard {
+  display: grid;
+  grid-template-columns: 220px 1fr 1fr;
+  grid-template-rows: 70px 1fr 1fr;
+  grid-template-areas:
+    "header header header"
+    "sidebar main main"
+    "sidebar widget1 widget2";
+  gap: 15px;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  height: 500px;
+}
+.d-header { grid-area: header; background: #6c5ce7; color: white; display: flex; align-items: center; padding: 0 20px; border-radius: 12px; }
+.d-sidebar { grid-area: sidebar; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+.d-main { grid-area: main; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+.d-w1 { grid-area: widget1; background: #ffeaa7; padding: 20px; border-radius: 12px; }
+.d-w2 { grid-area: widget2; background: #55efc4; padding: 20px; border-radius: 12px; }
+
+/* LOGIN - Centred */
+.login-section { display: flex; justify-content: center; align-items: center; height: 70vh; }
+.login-box { background: white; padding: 30px; width: 340px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+.login-box input { width: 100%; padding: 12px; margin-bottom: 12px; border: 1px solid #ddd; border-radius: 8px; }
+
+@media(max-width: 768px){
+  .navbar{padding:15px 20px;} .menu{display:none;} .hero{flex-direction:column; text-align:center;} .hero-text h1{font-size:36px;}
+  .dashboard{grid-template-columns:1fr; grid-template-rows:auto; grid-template-areas:"header" "sidebar" "main" "widget1" "widget2"; height:auto;}
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar"><div class="logo">FinalProject</div><ul class="menu"><li><a href="#">Home</a></li><li><a href="#">Dashboard</a></li><li><a href="#">Products</a></li></ul><button class="btn">Login</button></nav>
+
+<section class="hero"><div class="hero-text"><h1>Flexbox + <span>Grid Areas</span> Final</h1><p>Complete landing page with Dashboard using named grid areas</p><button class="btn">Get Started</button></div><div class="hero-img"><img src="https://picsum.photos/600/400"></div></section>
+
+<h2 class="title">Dashboard - Named Grid Areas</h2>
+<div class="dashboard">
+  <div class="d-header"><b>Dashboard Header</b></div>
+  <div class="d-sidebar"><b>Sidebar</b><br><br>Home<br>Analytics<br>Settings</div>
+  <div class="d-main"><b>Main Content</b><br><br>Yaha charts / data aayega</div>
+  <div class="d-w1"><b>Widget 1</b><br>Sales: $12k</div>
+  <div class="d-w2"><b>Widget 2</b><br>Users: 1.2k</div>
+</div>
+
+<h2 class="title">Product Grid - Auto Reflow</h2>
+<div class="product-grid">
+  <div class="product"><img src="https://picsum.photos/300/200?1"><div class="info"><h3>Shoes</h3><div class="price-row"><b>$99</b><button class="btn">Buy</button></div></div></div>
+  <div class="product"><img src="https://picsum.photos/300/200?2"><div class="info"><h3>Watch</h3><div class="price-row"><b>$149</b><button class="btn">Buy</button></div></div></div>
+  <div class="product"><img src="https://picsum.photos/300/200?3"><div class="info"><h3>Bag</h3><div class="price-row"><b>$79</b><button class="btn">Buy</button></div></div></div>
+  <div class="product"><img src="https://picsum.photos/300/200?4"><div class="info"><h3>Headphone</h3><div class="price-row"><b>$129</b><button class="btn">Buy</button></div></div></div>
+</div>
+
+<h2 class="title">Gallery - CSS Grid</h2>
+<div class="gallery"><img src="https://picsum.photos/400/300?5"><img src="https://picsum.photos/400/300?6"><img src="https://picsum.photos/400/300?7"><img src="https://picsum.photos/400/300?8"></div>
+
+<h2 class="title">Login - Centred</h2>
+<div class="login-section"><div class="login-box"><h2 style="text-align:center; margin-bottom:15px;">Login</h2><input placeholder="Email"><input type="password" placeholder="Password"><button class="btn" style="width:100%;">Login</button></div></div>
+
+</body>
+</html>
